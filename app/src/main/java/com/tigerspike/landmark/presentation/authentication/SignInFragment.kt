@@ -8,8 +8,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.tigerspike.landmark.R
@@ -22,7 +20,6 @@ import com.tigerspike.landmark.util.extension.loadingAlert
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_search.toolbar
 import kotlinx.android.synthetic.main.fragment_sign_in.*
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class SignInFragment : Fragment() {
@@ -50,7 +47,7 @@ class SignInFragment : Fragment() {
         }
 
         // observe authentication state and act accordingly
-        viewModel.authViewState.observe(viewLifecycleOwner, Observer { state ->
+        viewModel.authViewState.observe(viewLifecycleOwner, { state ->
             when (state) {
                 is ViewState.Loading -> loadingAlert = loadingAlert().show()
                 is ViewState.Data -> {

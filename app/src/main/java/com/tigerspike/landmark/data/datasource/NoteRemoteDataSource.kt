@@ -22,7 +22,7 @@ import kotlin.coroutines.suspendCoroutine
 class NoteRemoteDataSource @Inject constructor() {
 
     suspend fun fetchNotes(): Result<List<Note>> = resultCatching {
-        suspendCoroutine<List<Note>> { continuation ->
+        suspendCoroutine { continuation ->
             Firebase.firestore.collection("notes").get()
                 .addOnSuccessListener { result ->
                     val notes = result.map { it.toNote() }
@@ -35,7 +35,7 @@ class NoteRemoteDataSource @Inject constructor() {
     }
 
     suspend fun fetchNotesByTextOrUserName(query: String): Result<List<Note>> = resultCatching {
-        suspendCoroutine<List<Note>> { continuation ->
+        suspendCoroutine { continuation ->
             // Getting the list from cache due to performance issues
             Firebase.firestore.collection("notes").get(Source.CACHE)
                 .addOnSuccessListener { result ->

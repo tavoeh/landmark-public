@@ -3,12 +3,11 @@ package com.tigerspike.landmark.presentation.map
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.android.gms.maps.model.LatLng
 import com.google.common.truth.Truth.assertThat
-import com.tigerspike.landmark.util.CoroutineTestRule
 import com.tigerspike.landmark.domain.model.Error
 import com.tigerspike.landmark.domain.model.Result
 import com.tigerspike.landmark.domain.useCase.GetNotesUseCase
 import com.tigerspike.landmark.presentation.ViewState
-import com.tigerspike.landmark.util.mockNote
+import com.tigerspike.landmark.util.CoroutineTestRule
 import com.tigerspike.landmark.util.mockNotes
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest

@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.tigerspike.landmark.R
@@ -18,7 +16,6 @@ import com.tigerspike.landmark.presentation.ViewState
 import com.tigerspike.landmark.util.extension.genericErrorAlert
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_settings.*
-import javax.inject.Inject
 
 /**
  * Fragment for various configuration aspects of the system
@@ -44,7 +41,7 @@ class SettingsFragment : Fragment() {
             viewModel.signOut()
         }
 
-        viewModel.viewState.observe(viewLifecycleOwner, Observer { state ->
+        viewModel.viewState.observe(viewLifecycleOwner, { state ->
             when (state) {
                 is ViewState.Data -> activityViewModel.updateUserState()
                 is ViewState.Failure -> genericErrorAlert().show()
@@ -56,7 +53,7 @@ class SettingsFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         // Get the the user state and display the components accordingly
-        activityViewModel.userState.observe(viewLifecycleOwner, Observer { user ->
+        activityViewModel.userState.observe(viewLifecycleOwner, { user ->
             when (user) {
                 is User.Authenticated -> {
                     userName.text = user.name

@@ -4,10 +4,7 @@ import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.tigerspike.landmark.data.mapper.resultCatching
-import com.tigerspike.landmark.data.mapper.toUser
 import com.tigerspike.landmark.domain.model.Result
-import com.tigerspike.landmark.domain.model.User
-import java.lang.Exception
 import javax.inject.Inject
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
@@ -65,7 +62,7 @@ class UserRemoteDataSource @Inject constructor() {
         if (signUpResult && nameResult) Unit else throw Exception()
     }
 
-    suspend fun signOut(): Result<Unit> = resultCatching {
+    fun signOut(): Result<Unit> = resultCatching {
         Firebase.auth.signOut()
     }
 

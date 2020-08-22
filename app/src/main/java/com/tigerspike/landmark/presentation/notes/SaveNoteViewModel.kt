@@ -12,7 +12,6 @@ import com.tigerspike.landmark.presentation.ViewState
 import com.tigerspike.landmark.util.DispatcherProvider
 import com.tigerspike.landmark.util.Event
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 /**
  * Created by Gustavo Enriquez on 26/7/20.

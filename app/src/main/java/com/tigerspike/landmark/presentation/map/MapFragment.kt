@@ -14,7 +14,6 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -133,7 +132,7 @@ class MapFragment : Fragment() {
         })
 
         // Observe user states
-        activityViewModel.userState.observe(viewLifecycleOwner, Observer { user ->
+        activityViewModel.userState.observe(viewLifecycleOwner, { user ->
             userState = user
         })
     }
@@ -173,7 +172,7 @@ class MapFragment : Fragment() {
         // only when the map is ready
         btnNewNoteAtMyLocation.visibility = View.VISIBLE
 
-        viewModel.mapViewState.observe(viewLifecycleOwner, Observer { mapViewState ->
+        viewModel.mapViewState.observe(viewLifecycleOwner, { mapViewState ->
             handleState(mapViewState)
         })
 

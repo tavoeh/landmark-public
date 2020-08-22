@@ -16,7 +16,7 @@ class Event<out T>(private val _content: T) {
             handled = true
             _content
         }
-
+    
     fun peek() = _content
 
     class Observer<T>(private val observer: (T) -> Unit) :
@@ -27,4 +27,4 @@ class Event<out T>(private val _content: T) {
     }
 }
 
-fun Event() = Event(Unit)
+fun event() = Event(Unit)

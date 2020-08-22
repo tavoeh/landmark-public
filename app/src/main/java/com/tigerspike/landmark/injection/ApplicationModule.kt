@@ -8,7 +8,6 @@ import com.tigerspike.landmark.util.DefaultDispatcherProvider
 import com.tigerspike.landmark.util.DispatcherProvider
 import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import javax.inject.Singleton
@@ -25,16 +24,16 @@ abstract class ApplicationModule {
 
     @Binds
     @Singleton
-    abstract fun provideDispatchers(dispatchers: DefaultDispatcherProvider): DispatcherProvider
+    abstract fun bindDispatchers(dispatchers: DefaultDispatcherProvider): DispatcherProvider
 
     //region Repositories
     @Binds
     @Singleton
-    abstract fun provideNoteRepository(repository: NoteRepositoryImpl): NoteRepository
+    abstract fun bindNoteRepository(repository: NoteRepositoryImpl): NoteRepository
 
     @Binds
     @Singleton
-    abstract fun provideUserRepository(repository: UserRepositoryImpl): UserRepository
+    abstract fun bindUserRepository(repository: UserRepositoryImpl): UserRepository
     //endregion
 
 }

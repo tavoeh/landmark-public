@@ -5,17 +5,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.tigerspike.landmark.domain.model.Error
 import com.tigerspike.landmark.domain.model.Result
-import com.tigerspike.landmark.domain.useCase.SignInUseCase
 import com.tigerspike.landmark.domain.useCase.SignOutUseCase
-import com.tigerspike.landmark.domain.useCase.SignUpUseCase
 import com.tigerspike.landmark.presentation.ViewState
 import com.tigerspike.landmark.util.DispatcherProvider
-import com.tigerspike.landmark.util.Event
 import kotlinx.coroutines.launch
-import java.lang.Exception
-import javax.inject.Inject
 
 /**
  * Created by Gustavo Enriquez on 26/7/20.

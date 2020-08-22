@@ -6,7 +6,7 @@ import com.tigerspike.landmark.domain.model.Result
 import com.tigerspike.landmark.domain.model.User
 import com.tigerspike.landmark.domain.useCase.GetUserUseCase
 import com.tigerspike.landmark.util.Event
-import javax.inject.Inject
+import com.tigerspike.landmark.util.event
 
 /**
  * Created by Gustavo Enriquez on 25/7/20.
@@ -46,7 +46,7 @@ class MainViewModel @ViewModelInject constructor(
     }
 
     fun onSaveNote() {
-        _onSaveNoteEvent.value = Event()
+        _onSaveNoteEvent.value = event()
     }
 
     private fun Result<User>.toUserState() = when (this) {

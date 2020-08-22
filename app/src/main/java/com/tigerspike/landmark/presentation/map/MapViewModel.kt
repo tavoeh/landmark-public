@@ -1,8 +1,12 @@
 package com.tigerspike.landmark.presentation.map
 
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.*
-import com.google.android.gms.maps.model.BitmapDescriptorFactory.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.google.android.gms.maps.model.BitmapDescriptorFactory.HUE_AZURE
+import com.google.android.gms.maps.model.BitmapDescriptorFactory.HUE_RED
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.tigerspike.landmark.domain.model.Result
@@ -10,7 +14,6 @@ import com.tigerspike.landmark.domain.useCase.GetNotesUseCase
 import com.tigerspike.landmark.presentation.ViewState
 import com.tigerspike.landmark.util.DispatcherProvider
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 /**
  * Created by Gustavo Enriquez on 25/7/20.

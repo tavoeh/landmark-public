@@ -1,6 +1,5 @@
 package com.tigerspike.landmark.util
 
-import com.tigerspike.landmark.util.DispatcherProvider
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

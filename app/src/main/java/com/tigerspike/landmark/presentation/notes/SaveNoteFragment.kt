@@ -1,6 +1,5 @@
 package com.tigerspike.landmark.presentation.notes
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,7 +8,6 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.navigation.ui.setupWithNavController
@@ -18,11 +16,9 @@ import com.tigerspike.landmark.presentation.MainViewModel
 import com.tigerspike.landmark.presentation.ViewState
 import com.tigerspike.landmark.util.Event
 import com.tigerspike.landmark.util.extension.*
-import dagger.hilt.EntryPoint
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_save_note.*
 import kotlinx.android.synthetic.main.fragment_search.toolbar
-import javax.inject.Inject
 
 /**
  * Fragment displays the save notes screen

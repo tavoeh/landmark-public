@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -46,7 +45,7 @@ class SearchFragment : Fragment() {
         binding.rvNotes.adapter = adapter
         binding.rvNotes.layoutManager = LinearLayoutManager(context)
 
-        viewModel.notesViewState.observe(viewLifecycleOwner, Observer { state ->
+        viewModel.notesViewState.observe(viewLifecycleOwner, { state ->
             when (state) {
                 is ViewState.Data -> adapter.submitList(state.data)
                 is ViewState.Failure -> genericErrorAlert().show()
