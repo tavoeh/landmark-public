@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Landmark Remark</string>
+    <string name="app_name">Landmark</string>
 
     <string name="ok">0k</string>
     <string name="loading">Loading…</string>
@@ -14,6 +14,7 @@
     <string name="authentication_sign_up">Sign Up</string>
     <string name="authentication_need_sign_in">To add a new note, you\'ll need to sign in.</string>
 
+    <string name="add_new_note">Add New Note</string>
     <string name="new_note_at_location">New note at location:</string>
     <string name="new_note_at_my_location">New note at my location:</string>
     <string name="new_note_text">What do you like about this place? (280 characters)</string>
@@ -36,6 +37,8 @@
     <!-- Error-->
     <string name="error_generic_message">Something went wrong!</string>
 
+    <!-- About-->
     <string name="about">About\nGustavo Enriquez\ntavoeh@gmail.com</string>
+
 
 </resources>
