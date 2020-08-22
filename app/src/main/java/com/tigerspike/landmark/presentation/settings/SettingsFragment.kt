@@ -1,6 +1,5 @@
 package com.tigerspike.landmark.presentation.settings
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,26 +15,18 @@ import com.tigerspike.landmark.R
 import com.tigerspike.landmark.domain.model.User
 import com.tigerspike.landmark.presentation.MainViewModel
 import com.tigerspike.landmark.presentation.ViewState
-import com.tigerspike.landmark.util.extension.app
 import com.tigerspike.landmark.util.extension.genericErrorAlert
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_settings.*
 import javax.inject.Inject
 
 /**
  * Fragment for various configuration aspects of the system
  */
+@AndroidEntryPoint
 class SettingsFragment : Fragment() {
-
-    @Inject
-    lateinit var factory: ViewModelProvider.Factory
-    private val viewModel: SettingsViewModel by viewModels { factory }
-    private val activityViewModel: MainViewModel by activityViewModels { factory }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        // adding fragment to the dependency graph
-        app.appComponent.inject(this)
-    }
+    private val viewModel: SettingsViewModel by viewModels()
+    private val activityViewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -1,5 +1,6 @@
 package com.tigerspike.landmark.presentation.map
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.google.android.gms.maps.model.BitmapDescriptorFactory.*
 import com.google.android.gms.maps.model.LatLng
@@ -15,7 +16,7 @@ import javax.inject.Inject
  * Created by Gustavo Enriquez on 25/7/20.
  **/
 
-class MapViewModel @Inject constructor(
+class MapViewModel @ViewModelInject constructor(
     private val getNotesUseCase: GetNotesUseCase,
     val dispatchers: DispatcherProvider
 ) : ViewModel() {

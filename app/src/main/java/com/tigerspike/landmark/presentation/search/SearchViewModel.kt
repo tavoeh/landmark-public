@@ -1,18 +1,18 @@
 package com.tigerspike.landmark.presentation.search
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.tigerspike.landmark.domain.model.Note
 import com.tigerspike.landmark.domain.model.Result
 import com.tigerspike.landmark.domain.useCase.SearchNotesByTextOrUserUseCase
 import com.tigerspike.landmark.presentation.ViewState
 import com.tigerspike.landmark.util.DispatcherProvider
-import javax.inject.Inject
 
 /**
  * Created by Gustavo Enriquez on 25/7/20.
  **/
 
-class SearchViewModel @Inject constructor(
+class SearchViewModel @ViewModelInject constructor(
     private val searchNotesByTextOrUserUseCase: SearchNotesByTextOrUserUseCase,
     dispatchers: DispatcherProvider
 ) : ViewModel() {
@@ -27,9 +27,9 @@ class SearchViewModel @Inject constructor(
      */
     val notesViewState: LiveData<ViewState<List<Item>>> = query.switchMap { query ->
         liveData(dispatchers.main()) {
-            val state = when (query.isNotBlank()) {
+            val state: ViewState<List<Item>> = when (query.isNotBlank()) {
                 true -> searchNotesByTextOrUserUseCase.execute(query).toMapViewState()
-                false -> ViewState.Data(listOf())
+                else -> ViewState.Data(listOf())
             }
             emit(state)
         }

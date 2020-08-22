@@ -2,7 +2,6 @@ package com.tigerspike.landmark.presentation.map
 
 import android.Manifest.permission.ACCESS_FINE_LOCATION
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
@@ -16,7 +15,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -35,20 +33,18 @@ import com.tigerspike.landmark.presentation.MainViewModel
 import com.tigerspike.landmark.presentation.ViewState
 import com.tigerspike.landmark.util.Event
 import com.tigerspike.landmark.util.extension.actionAlert
-import com.tigerspike.landmark.util.extension.app
 import com.tigerspike.landmark.util.extension.genericErrorAlert
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_map.*
-import javax.inject.Inject
 
 /**
  * Fragment displays the notes on a Map
  */
+@AndroidEntryPoint
 class MapFragment : Fragment() {
 
-    @Inject
-    lateinit var factory: ViewModelProvider.Factory
-    private val viewModel: MapViewModel by viewModels { factory }
-    private val activityViewModel: MainViewModel by activityViewModels { factory }
+    private val viewModel: MapViewModel by viewModels()
+    private val activityViewModel: MainViewModel by activityViewModels()
 
     private lateinit var map: GoogleMap
     private var mapState: MapViewModel.MapState? = null
@@ -59,12 +55,6 @@ class MapFragment : Fragment() {
     }
 
     private lateinit var newNoteBottomSheet: BottomSheetBehavior<ConstraintLayout>
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        // adding fragment to the dependency graph
-        app.appComponent.inject(this)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

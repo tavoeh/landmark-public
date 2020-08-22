@@ -18,6 +18,8 @@ import com.tigerspike.landmark.presentation.MainViewModel
 import com.tigerspike.landmark.presentation.ViewState
 import com.tigerspike.landmark.util.Event
 import com.tigerspike.landmark.util.extension.*
+import dagger.hilt.EntryPoint
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_save_note.*
 import kotlinx.android.synthetic.main.fragment_search.toolbar
 import javax.inject.Inject
@@ -25,22 +27,15 @@ import javax.inject.Inject
 /**
  * Fragment displays the save notes screen
  */
+@AndroidEntryPoint
 class SaveNoteFragment : Fragment() {
 
     private val args: SaveNoteFragmentArgs by navArgs()
 
-    @Inject
-    lateinit var factory: ViewModelProvider.Factory
-    private val viewModel: SaveNoteViewModel by viewModels { factory }
-    private val activityViewModel: MainViewModel by activityViewModels { factory }
+    private val viewModel: SaveNoteViewModel by viewModels()
+    private val activityViewModel: MainViewModel by activityViewModels()
 
     private var loadingAlert: AlertDialog? = null
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        // adding fragment to the dependency graph
-        app.appComponent.inject(this)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -1,5 +1,6 @@
 package com.tigerspike.landmark.presentation
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.tigerspike.landmark.domain.model.Result
 import com.tigerspike.landmark.domain.model.User
@@ -11,7 +12,7 @@ import javax.inject.Inject
  * Created by Gustavo Enriquez on 25/7/20.
  **/
 
-class MainViewModel @Inject constructor(
+class MainViewModel @ViewModelInject constructor(
     getUserUseCase: GetUserUseCase
 ) : ViewModel() {
 

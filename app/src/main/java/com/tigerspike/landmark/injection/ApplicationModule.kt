@@ -6,8 +6,11 @@ import com.tigerspike.landmark.domain.contract.NoteRepository
 import com.tigerspike.landmark.domain.contract.UserRepository
 import com.tigerspike.landmark.util.DefaultDispatcherProvider
 import com.tigerspike.landmark.util.DispatcherProvider
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 import javax.inject.Singleton
 
 /**
@@ -16,21 +19,22 @@ import javax.inject.Singleton
  *  Dependency application module
  **/
 
+@InstallIn(ApplicationComponent::class)
 @Module
-class ApplicationModule {
+abstract class ApplicationModule {
 
-    @Provides
+    @Binds
     @Singleton
-    fun provideDispatchers(dispatchers: DefaultDispatcherProvider): DispatcherProvider = dispatchers
+    abstract fun provideDispatchers(dispatchers: DefaultDispatcherProvider): DispatcherProvider
 
     //region Repositories
-    @Provides
+    @Binds
     @Singleton
-    fun provideNoteRepository(repository: NoteRepositoryImpl): NoteRepository = repository
+    abstract fun provideNoteRepository(repository: NoteRepositoryImpl): NoteRepository
 
-    @Provides
+    @Binds
     @Singleton
-    fun provideUserRepository(repository: UserRepositoryImpl): UserRepository = repository
+    abstract fun provideUserRepository(repository: UserRepositoryImpl): UserRepository
     //endregion
 
 }

@@ -1,5 +1,6 @@
 package com.tigerspike.landmark.presentation.notes
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -17,7 +18,7 @@ import javax.inject.Inject
  * Created by Gustavo Enriquez on 26/7/20.
  **/
 
-class SaveNoteViewModel @Inject constructor(
+class SaveNoteViewModel @ViewModelInject constructor(
     private val saveNoteUseCase: SaveNoteUseCase,
     private val dispatchers: DispatcherProvider
 ) : ViewModel() {

@@ -1,6 +1,5 @@
 package com.tigerspike.landmark.presentation.authentication
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,27 +16,20 @@ import com.tigerspike.landmark.R
 import com.tigerspike.landmark.databinding.FragmentSignUpBinding
 import com.tigerspike.landmark.presentation.MainViewModel
 import com.tigerspike.landmark.presentation.ViewState
-import com.tigerspike.landmark.util.extension.app
 import com.tigerspike.landmark.util.extension.genericErrorAlert
 import com.tigerspike.landmark.util.extension.hideKeyboard
 import com.tigerspike.landmark.util.extension.loadingAlert
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_search.*
 import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class SignUpFragment : Fragment() {
 
-    @Inject lateinit var factory: ViewModelProvider.Factory
-    private val viewModel: AuthenticationViewModel by viewModels { factory }
-    private val activityViewModel: MainViewModel by activityViewModels { factory }
+    private val viewModel: AuthenticationViewModel by viewModels()
+    private val activityViewModel: MainViewModel by activityViewModels()
     private lateinit var binding: FragmentSignUpBinding
     private var loadingAlert: AlertDialog? = null
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        // Adding fragment to the dependency graph
-        app.appComponent.inject(this)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

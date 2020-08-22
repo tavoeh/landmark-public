@@ -20,17 +20,6 @@ Install Landmark Remark App on your device and enjoy saving short notes of your 
 * As a user I can enable or deny location permissions of the application
 * As a user I can be notified about any error in the app 
 
-### Time: 22H
-*  4H: Architecture definition and implementation 
-*  2H: Unit tests
-*  1H: Map setup (Google maps)
-*  4H: Notes Feature (Read, create)
-*  3H: Search Feature
-*  3H: User Authentication (Sign In, Sign Up, Logout)
-*  2H: Backend set up (Firebase)
-*  2H: Testing and bug fixes
-*  1H Documentation
-
 ## Project setup
 * Clone the repo and open the project in Android Studio
 * Get a Google Maps API Key following this steps described in the [Google Maps documentation](https://developers.google.com/maps/documentation/android-sdk/get-api-key) and add it to the `google_maps_api.xml` file
@@ -72,20 +61,20 @@ Android Native Application developed using Android Studio 4.0.1 and Google libra
 
 ```
 Navigation Components
-implementation 'androidx.navigation:navigation-fragment-ktx:$2.3.0'
-implementation 'androidx.navigation:navigation-ui-ktx:$2.3.0'
+androidx.navigation:navigation-fragment-ktx
+androidx.navigation:navigation-ui-ktx
     
 Google Maps
-implementation 'com.google.android.gms:play-services-maps:17.0.0'
+com.google.android.gms:play-services-maps
 
 Location
-implementation "com.google.android.gms:play-services-location:17.0.0"
+com.google.android.gms:play-services-location
 
 Material Components
-implementation 'com.google.android.material:material:1.1.0'
+com.google.android.material:material
 
 Dependency injection
-implementation 'com.google.dagger:dagger:2.28'
+com.google.dagger:hilt-android
 ```
 
 ### backend
@@ -96,10 +85,10 @@ Firebase for Android.
 
 ```
 Storage
-implementation 'com.google.firebase:firebase-firestore-ktx:21.5.0'
+com.google.firebase:firebase-firestore-ktx
 
 User Authentication
-implementation 'com.google.firebase:firebase-auth-ktx:19.3.2'
+com.google.firebase:firebase-auth-ktx:19.3.2
 ```
 
 ## Testing

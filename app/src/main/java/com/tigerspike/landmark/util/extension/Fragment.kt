@@ -36,12 +36,12 @@ fun Fragment.hideKeyboard() {
 
 // region Alerts
 fun Fragment.genericErrorAlert(): MaterialAlertDialogBuilder =
-    MaterialAlertDialogBuilder(context)
+    MaterialAlertDialogBuilder(requireContext())
         .setTitle(getString(R.string.error_generic_message))
         .setPositiveButton(resources.getString(R.string.ok)) { dialog, _ -> dialog.dismiss() }
 
 fun Fragment.actionAlert(title: String, actionLabel: String, action: () -> Unit): MaterialAlertDialogBuilder =
-    MaterialAlertDialogBuilder(context)
+    MaterialAlertDialogBuilder(requireContext())
         .setTitle(title)
         .setPositiveButton(actionLabel) { dialog, _ ->
             dialog.cancel()
@@ -50,7 +50,7 @@ fun Fragment.actionAlert(title: String, actionLabel: String, action: () -> Unit)
         }
 
 fun Fragment.loadingAlert(): MaterialAlertDialogBuilder =
-    MaterialAlertDialogBuilder(context)
+    MaterialAlertDialogBuilder(requireContext())
         .setMessage(getString(R.string.loading))
         .setCancelable(false)
 

@@ -1,5 +1,6 @@
 package com.tigerspike.landmark.presentation.authentication
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,13 +12,12 @@ import com.tigerspike.landmark.domain.useCase.SignUpUseCase
 import com.tigerspike.landmark.presentation.ViewState
 import com.tigerspike.landmark.util.DispatcherProvider
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 /**
  * Created by Gustavo Enriquez on 26/7/20.
  **/
 
-class AuthenticationViewModel @Inject constructor(
+class AuthenticationViewModel @ViewModelInject constructor(
     private val signInUseCase: SignInUseCase,
     private val signUpUseCase: SignUpUseCase,
     private val dispatchers: DispatcherProvider

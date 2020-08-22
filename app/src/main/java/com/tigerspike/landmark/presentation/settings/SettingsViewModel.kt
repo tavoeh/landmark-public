@@ -1,5 +1,6 @@
 package com.tigerspike.landmark.presentation.settings
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,7 +21,7 @@ import javax.inject.Inject
  * Created by Gustavo Enriquez on 26/7/20.
  **/
 
-class SettingsViewModel @Inject constructor(
+class SettingsViewModel @ViewModelInject constructor(
     private val signOutUseCase: SignOutUseCase,
     private val dispatchers: DispatcherProvider
 ) : ViewModel() {
